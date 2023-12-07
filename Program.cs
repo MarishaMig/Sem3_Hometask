@@ -45,7 +45,7 @@ Console.Write("] => "+count);*/
 массив [2.2 0.4 9.11 7.2 78.98] => 78.58 
 массив [1.22 4.5 3.33] => 3.28 */
 
-Console.Write("Введите размер массива: ");
+/*Console.Write("Введите размер массива: ");
 int num=Convert.ToInt32(Console.ReadLine());
 double [] array = new double [num];
 Console.Write("массив [");
@@ -66,4 +66,53 @@ for  (int i=1; i<array.Length; i++)
         min=array[i];
     }
 }
-Console.Write($"] => {max-min}");
+Console.Write($"] => {max-min}");*/
+
+
+
+/*Дано натуральное число в диапазоне от 1 до 100 000. Создайте массив, состоящий из цифр этого числа. 
+Старший разряд числа должен располагаться на 0-м индексе массива, младший – на последнем. 
+Размер массива должен быть равен количеству цифр.
+425 => [4 2 5] 
+8741 => [8 7 4 1] 
+4 => [4] */
+
+
+Console.Write("Введите натуральное число в диапазоне от 1 до 100 000: ");
+int N=Convert.ToInt32(Console.ReadLine());
+if (N>0 && N<=100000)
+{
+    Console.Write(N+" => [");
+    if (N<10)
+    {
+        Console.Write($"{N}]");
+    }
+    else
+    {
+        int car=N; int size=0;
+        while (car>0)
+        {
+            car/=10;
+            size++;
+        }
+        int[] array = new int[size];
+        int div=1;
+        for (int index=1; index<size; index++)
+        {
+            div=div*10;
+        }
+        for (int i=0; i<array.Length; i++)
+        {
+            array[i]=N/div;
+            Console.Write(array[i]+" ");
+            N=N%div;
+            div=div/10;
+        }        
+        Console.Write("]");
+    }
+}
+else
+{
+   Console.WriteLine("введите другое число!");
+}
+
