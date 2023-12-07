@@ -78,7 +78,7 @@ Console.Write($"] => {max-min}");*/
 4 => [4] */
 
 
-Console.Write("Введите натуральное число в диапазоне от 1 до 100 000: ");
+/*Console.Write("Введите натуральное число в диапазоне от 1 до 100 000: ");
 int N=Convert.ToInt32(Console.ReadLine());
 if (N>0 && N<=100000)
 {
@@ -111,6 +111,38 @@ if (N>0 && N<=100000)
         Console.Write("]");
     }
 }
+else
+{
+   Console.WriteLine("введите другое число!");
+}
+*/
+
+//2 способ решения 4 задачи:
+
+Console.Write("Введите натуральное число в диапазоне от 1 до 100 000: ");
+int N=Convert.ToInt32(Console.ReadLine());
+if (N>0 && N<=100000)
+{
+    Console.Write(N+" => [");
+    string s=Convert.ToString(N);
+    char[] array =s.ToCharArray();
+    if (array.Length>1)
+    {
+        int i=0;
+        while (i < array.Length-1)
+        {    
+            Console.Write(array[i]+" ");
+            i++;
+        }
+        Console.Write(array[array.Length-1]);
+    }
+    else
+    {
+   
+        Console.Write(array[0]);
+    }
+    Console.Write("]");
+    }
 else
 {
    Console.WriteLine("введите другое число!");
