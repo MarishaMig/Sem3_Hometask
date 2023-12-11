@@ -118,7 +118,7 @@ else
 */
 
 //2 способ решения 4 задачи:
-
+/*
 Console.Write("Введите натуральное число в диапазоне от 1 до 100 000: ");
 int N=Convert.ToInt32(Console.ReadLine());
 if (N>0 && N<=100000)
@@ -147,4 +147,33 @@ else
 {
    Console.WriteLine("введите другое число!");
 }
+*/
+/*Задайте массив из вещественных чисел с ненулевой дробной частью.
+Найдите разницу между максимальным и минимальным элементов массива.
+массив [2.2 0.4 9.11 7.2 78.98] => 78.58
+массив [1.22 4.5 3.33] => 3.28 */
+
+
+Console.Write("Введите размер массива: ");
+int num=Convert.ToInt32(Console.ReadLine());
+double [] array = new double [num];
+Console.Write("массив [");
+double min=0; double max=0;
+for (int i=0; i<array.Length; i++)
+{
+    array[i] = Math.Round(new Random().NextDouble() + new Random().Next(0,20), 2, MidpointRounding.AwayFromZero);  
+    Console.Write(array[i] +" ");
+if (i==0)
+{
+min=array[0]; 
+max=array[0];
+}
+    if  ( i>0 )
+    {
+        if (array[i]>max)    max=array[i];
+        if (array[i]<min)    min=array[i];
+    }
+}
+Console.Write($"] => {Math.Round(max-min, 2, MidpointRounding.AwayFromZero)}");
+
 
